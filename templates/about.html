@@ -13,89 +13,47 @@
 	leave on other business, welcomed a fourteenth to fill into their party.
 </p>
 
+{% for member in company %}
+
 <div class="row featurette">
-	<div class="col-md-7">
-		<h3>Thorin Oakenshield</h3>
-		<p>
-			Thorin II "Oakenshield", eventually called King under the Mountain or
-			Mountain King, was the son of Thráin II, the older brother of Frerin and
-			Dís, the grandson of King Thrór and the uncle of Fíli and Kíli. Thorin was
-			best known for his deeds as leader of a company that infiltrated the lost
-			Kingdom under the Mountain to take it back from Smaug and for leading an
-			alliance of Men, Dwarves, and Elves in the Battle of Five Armies.
-		</p>
-	</div>
+
+	{% if loop.index % 2 != 0 %}
+
+		<div class="col-md-7">
+			<h3>{{ loop.index }}. {{ member.name }}</h3>
+			<p>{{ member.description }}</p>
+		</div>
+		<div class="col-md-5">
+			<img
+				src="{{ member.image_source }}"
+				alt=""
+				class="featurette-image image-responsive"
+			/>
+		</div>
+
+	{% else %}
+
 	<div class="col-md-5">
 		<img
-			src="https://static.wikia.nocookie.net/lotr/images/3/39/ThorinOakenshieldOfTheHobbit.jpeg"
-			alt="Thorin Oakenshield"
-		/>
-	</div>
-</div>
-<div class="row featurette">
-	<div class="col-md-5">
-		<img
-			src="https://static.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg"
-			alt="Fili and Kili"
-		/>
-	</div>
-	<div class="col-md-7">
-		<h3>Fili and Kili</h3>
-		<p>
-			Fíli and Kíli were brothers, the youngest of the thirteen dwarves who set
-			out with Thorin Oakenshield's company, along with Gandalf and Bilbo
-			Baggins, to reclaim the Lonely Mountain from the dragon Smaug.
-			<br />
-			Fíli and Kíli were the two most active dwarves of Thorin's company, and
-			apart from Balin, and possibly Bombur, they appeared more frequently as
-			"individual" characters in Tolkien's novel than the rest of Thorin's
-			companions, who were most often named only in "group" references to the
-			entire company.
-		</p>
-	</div>
-</div>
-<div class="row featurette">
-	<div class="col-md-7">
-		<h3>Óin</h3>
-		<p>
-			Óin was the older brother of Glóin, cousin of Dwalin and Balin, and uncle
-			of Gimli. Oin's uncle was Fundin, the father of Balin and Dwalin. He
-			usually wore a brown-hooded cloak when travelling. Óin fought in the
-			Battle of Azanulbizar along with Thorin Oakenshield, and in TA 2941 joined
-			with Thorin and Company on the quest to reclaim the Lonely Mountain
-			wearing a brown hood.[2] Óin was one of the Dwarves who bet that Bilbo
-			would come along with them to reclaim the Lonely Mountain. Óin and his
-			brother Glóin were usually in charge of preparing the fire for the Company
-			as they were the most skilled out of the others. He fought in and survived
-			the Battle of Five Armies, and later settled in the Lonely Mountain with
-			King Dain Ironfoot II along with many other dwarves of The Company of
-			Thorin.
-		</p>
-	</div>
-	<div class="col-md-5">
-		<img
-			src="https://static.wikia.nocookie.net/lotr/images/4/4b/Oinstaff.jpg"
-			alt="Oin"
-		/>
-	</div>
-</div>
-<div class="row featurette">
-	<div class="col-md-5">
-		<img
-			src="https://static.wikia.nocookie.net/lotr/images/f/fc/Gloin_2.jpg"
-			alt="Glóin"
+			src="{{ member.image_source }}"
+			alt=""
+			class="featurette-image image-responsive"
 		/>
 	</div>
 	<div class="col-md-7">
-		<h3>Glóin</h3>
-		<p>
-			Glóin son of Gróin was one of the Dwarves of Thorin II Oakenshield's
-			company who set out to reclaim the Lonely Mountain in the Quest of Erebor.
-			He was also the father of Gimli, who became a member of the Fellowship of
-			the Ring. Glóin chiefly appears in The Hobbit as a supporting character.
-			Glóin also appears in The Fellowship of the Ring during the Fellowship's
-			stay in Rivendell.
-		</p>
+		<h3>{{ loop.index }}. {{ member.name }}</h3>
+		<p>{{ member.description }}</p>
 	</div>
+
+	{% endif %}
+
 </div>
+
+	{% if loop.index != loop.length %}
+
+		<hr class="featurette-divider" />
+
+	{% endif %}
+
+{% endfor %} 
 {% endblock %}
